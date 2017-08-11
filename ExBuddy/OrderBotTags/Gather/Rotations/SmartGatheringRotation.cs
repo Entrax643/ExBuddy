@@ -2,22 +2,24 @@
 {
 	using ExBuddy.Interfaces;
 	using System.Threading.Tasks;
+	using ff14bot.Objects;
+	using Helpers;
 
-	public abstract class SmartGatheringRotation : GatheringRotation
+    public abstract class SmartGatheringRotation : GatheringRotation
 	{
 		public override Task<bool> Prepare(ExGatherTag tag)
 		{
 			return ResolveInternalGatheringRotation(tag).Prepare(tag);
 		}
 
-		public override bool ShouldForceGather(ExGatherTag tag)
+		public override bool ShouldForceGather(GatheringPointObject node)
 		{
-			return !tag.IsUnspoiled();
+			return !node.IsUnspoiled();
 		}
 
 		protected virtual IGatheringRotation ResolveInternalGatheringRotation(ExGatherTag tag)
 		{
-			if (tag.IsUnspoiled())
+			if (tag.Node.IsUnspoiled())
 			{
 				return ExGatherTag.Rotations["Unspoiled"];
 			}

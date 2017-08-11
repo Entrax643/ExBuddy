@@ -501,9 +501,6 @@
   <data name="DefaultReturnStrategy_Default" xml:space="preserve">
     <value>Default: Death Location: {0}, AetheryteId: {1}</value>
   </data>
-  <data name="ExGather_Cordial" xml:space="preserve">
-    <value>Using cordial when it becomes available</value>
-  </data>
   <data name="ExGather_CordialNotAvailable" xml:space="preserve">
     <value>No Cordial available, buy more </value>
   </data>
@@ -574,7 +571,7 @@
     <value>TouchAndGo override, maxTimeout being set between 2 and 16 seconds</value>
   </data>
   <data name="ExGather_TnGSeconds" xml:space="preserve">
-    <value>TouchAndGo strategy override, not waiting for GP unless it is less than 16 seconds</value>
+    <value>Expected wait of {0} exceeds maximum TouchAndGo wait of {1}</value>
   </data>
   <data name="NoAetheryteUseAethernetReturn_AethernetText" xml:space="preserve">
     <value>Aethernet.</value>
@@ -689,5 +686,41 @@
   </data>
   <data name="FlightEnabledSlideMover_TakeoffStart" xml:space="preserve">
     <value>Started Takeoff Task</value>
+  </data>
+  <data name="CordialConsumer_CordialCannotBeUsedByDeadPlayer" xml:space="preserve">
+    <value>🍼 {0} cannot be used because player is dead. </value>
+  </data>
+  <data name="CordialConsumer_CordialCannotBeUsedByMountedPlayer" xml:space="preserve">
+    <value>🍼 {0} cannot be used because player is mounted. </value>
+  </data>
+  <data name="CordialConsumer_CordialCannotBeUsedByPlayer" xml:space="preserve">
+    <value>🍼 {0} cannot be used by player.</value>
+  </data>
+  <data name="CordialConsumer_CordialCannotBeUsedDismountFailed" xml:space="preserve">
+    <value>🍼 {0} cannot be used because dismount failed.</value>
+  </data>
+  <data name="CordialConsumer_CordialItemTypeInvalid" xml:space="preserve">
+    <value>🍼 Item {0} is not valid.</value>
+  </data>
+  <data name="CordialConsumer_CordialOnCooldown" xml:space="preserve">
+    <value>🍼 {0} cannot be used because it is on cooldown.</value>
+  </data>
+  <data name="CordialConsumer_CordialStockDepleted" xml:space="preserve">
+    <value>🍼 {0} cannot be used because stock is depleted.</value>
+  </data>
+  <data name="CordialConsumer_CordialUsed" xml:space="preserve">
+    <value>🍼 {0} was used. Original GP: {1}, Cordial GP: {2}, Regenerated GP: {3}, Target GP: {4}</value>
+  </data>
+  <data name="ExGather_CordialUseDisabledNoStock" xml:space="preserve">
+    <value>Cordial use has been disabled because there is no cordial stock</value>
+  </data>
+  <data name="ExGather_NoCordialWasAppropriate" xml:space="preserve">
+    <value>No cordial was found that satisfies the missing GP. Original GP: {0}, Target GP: {1}, Total Missing: {2}</value>
+  </data>
+  <data name="ExGather_BeforeGatherReport" xml:space="preserve">
+    <value>Starting GP: {0}, Current GP: {1}, Effective GP: {2}, Breakpoint GP: {3}, Target GP: {4}, Max GP: {5}, Selected Cordial: {6}, Selected Cordial Size: {7}</value>
+  </data>
+  <data name="ExGather_BeforeGatherWait" xml:space="preserve">
+    <value>Regenerating GP for approximately {0} seconds.</value>
   </data>
 </root>

@@ -22,7 +22,7 @@ namespace ExBuddy.OrderBotTags.Gather.Rotations
 				return -1;
 			}
 
-			if (tag.GatherItem.IsUnknown || (tag.IsUnspoiled() && tag.GatherItem.Chance == 25))
+			if (tag.GatherItem.IsUnknown || (tag.Node.IsUnspoiled() && tag.GatherItem.Chance == 25))
 			{
 				return int.MaxValue;
 			}
@@ -36,7 +36,7 @@ namespace ExBuddy.OrderBotTags.Gather.Rotations
 		{
 			var unknownItems = GatheringManager.GatheringWindowItems.Where(i => i.IsUnknownChance() && i.Amount > 0).ToArray();
 
-			if (tag.IsUnspoiled() && Core.Player.CurrentGP >= 550 && unknownItems.Length > 1)
+			if (tag.Node.IsUnspoiled() && Core.Player.CurrentGP >= 550 && unknownItems.Length > 1)
 			{
 				await tag.Cast(Ability.Toil);
 			}

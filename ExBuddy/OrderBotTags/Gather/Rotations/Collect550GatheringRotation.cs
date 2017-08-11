@@ -4,8 +4,9 @@
 	using ExBuddy.Interfaces;
 	using ff14bot;
 	using System.Threading.Tasks;
+	using Helpers;
 
-	// Get One ++
+    // Get One ++
 	[GatheringRotation("Collect550", 33, 600)]
 	public sealed class Collect550GatheringRotation : CollectableGatheringRotation, IGetOverridePriority
 	{
@@ -26,7 +27,7 @@
 
 		public override async Task<bool> ExecuteRotation(ExGatherTag tag)
 		{
-			if (tag.IsUnspoiled())
+			if (tag.Node.IsUnspoiled())
 			{
 				await UtmostCaution(tag);
 				await AppraiseAndRebuff(tag);
@@ -44,7 +45,7 @@
 				if (tag.GatherItem.Chance < 98 && Core.Player.CurrentGP >= 600)
 				{
 					// if 60 or cordial is ready and is 58
-					if (tag.GatherItem.Chance < 97 || tag.CanUseCordial(Attributes.RequiredTimeInSeconds))
+					if (tag.GatherItem.Chance < 97)
 					{
 						var appraisalsRemaining = 4;
 						await Impulsive(tag);

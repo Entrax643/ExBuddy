@@ -8,8 +8,9 @@
 	using ff14bot.Managers;
 	using System;
 	using System.Threading.Tasks;
+	using ff14bot.Objects;
 
-	public abstract class GatheringRotation : IGatheringRotation
+    public abstract class GatheringRotation : IGatheringRotation
 	{
 		protected internal static readonly uint[] WardSkills = { 236U, 293U, 234U, 292U, 217U, 219U };
 
@@ -160,7 +161,7 @@
 			return -1;
 		}
 
-		public virtual bool ShouldForceGather(ExGatherTag tag)
+		public virtual bool ShouldForceGather(GatheringPointObject node)
 		{
 			return false;
 		}

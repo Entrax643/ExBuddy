@@ -12,28 +12,38 @@ namespace ExBuddy.Helpers
 {
     public static class CharacterResource
     {
-        public static int GetGpPerTick()
+        public static short GetGpPerTick()
         {
-            return (Me.CurrentJob == ClassJobType.Miner && ConditionParser.IsQuestCompleted(68094))
-                || (Me.CurrentJob == ClassJobType.Botanist && ConditionParser.IsQuestCompleted(68160))
-                || (Me.CurrentJob == ClassJobType.Fisher && ConditionParser.IsQuestCompleted(68435))
-                ? 6
-                : 5;
+            return (CharacterResource.Me.CurrentJob == ClassJobType.Miner && ConditionParser.IsQuestCompleted(68094))
+                || (CharacterResource.Me.CurrentJob == ClassJobType.Botanist && ConditionParser.IsQuestCompleted(68160))
+                || (CharacterResource.Me.CurrentJob == ClassJobType.Fisher && ConditionParser.IsQuestCompleted(68435))
+                ? (short) 6
+                : (short) 5;
         }
 
-        public static int GetEffectiveGp(int ticksTillGather)
+        public static short GetEffectiveGp(int ticksTillGather)
         {
             return GetEffectiveGp(ticksTillGather, GetGpPerTick());
         }
 
-        public static int GetEffectiveGp(int ticksTillGather, int gpPerTick)
+        public static short GetEffectiveGp(int ticksTillGather, int gpPerTick)
         {
-            if (ticksTillGather <= 0)
-            {
-                return Me.CurrentGP;
-            }
+            return ticksTillGather <= 0 
+                ? CharacterResource.Me.CurrentGP 
+                : (short) Math.Min(CharacterResource.Me.CurrentGP + (ticksTillGather * gpPerTick), CharacterResource.Me.MaxGP);
+        }
 
-            return Math.Min(Me.CurrentGP + (ticksTillGather * gpPerTick), Me.MaxGP);
+        public static TimeSpan EstimateExpectedRegenerationTime(short gpNeeded)
+        {
+            return EstimateExpectedRegenerationTime(gpNeeded, CharacterResource.GetGpPerTick());
+        }
+
+        public static TimeSpan EstimateExpectedRegenerationTime(short gpNeeded, short gpPerTick)
+        {
+            var gpNeededTicks = gpNeeded / gpPerTick;
+            var gpNeededSeconds = gpNeededTicks * 3;
+
+            return TimeSpan.FromSeconds(gpNeededSeconds);
         }
 
         private static LocalPlayer Me

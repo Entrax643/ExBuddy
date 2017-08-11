@@ -177,6 +177,13 @@
 			return value;
 		}
 
+	    public static TimeSpan Clamp(this TimeSpan value, TimeSpan min, TimeSpan max)
+	    {
+	        if (value < min) return min;
+	        if (value > max) return max;
+	        return value;
+	    }
+
 		/// <summary>
 		///     String conversion to typeof nulllable(bool) utility
 		/// </summary>

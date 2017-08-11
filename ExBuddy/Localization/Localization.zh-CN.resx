@@ -417,9 +417,6 @@
   <data name="ExGather_BlackListNode" xml:space="preserve">
     <value>屏蔽采集物以便不重新选择 -&gt; </value>
   </data>
-  <data name="ExGather_Cordial" xml:space="preserve">
-    <value>在强心剂可用时使用强心剂</value>
-  </data>
   <data name="ExGather_CordialNotAvailable" xml:space="preserve">
     <value>没有强心剂了,购买更多的</value>
   </data>
@@ -563,9 +560,6 @@
   </data>
   <data name="ExGather_TnGOverride" xml:space="preserve">
     <value>摸一下就走的循环已重载,最大超时时长设置为2到16秒.</value>
-  </data>
-  <data name="ExGather_TnGSeconds" xml:space="preserve">
-    <value>摸一下就走的循环已重载,16秒以上不等待采集力</value>
   </data>
   <data name="ExGather_WaitForGp" xml:space="preserve">
     <value>我们不应该来这里, 采集力信息错误: {0}, 需要的采集力: {1}</value>

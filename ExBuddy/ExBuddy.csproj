@@ -65,17 +65,37 @@
     <Compile Include="Data\MasterpieceSupplyDutyResult.cs" />
     <Compile Include="Data\RequiredItemResult.cs" />
     <Compile Include="Data\SqlData.cs" />
+    <Compile Include="Helpers\EorzeaTimeHelper.cs" />
+    <Compile Include="Helpers\Lazier.cs" />
     <Compile Include="Helpers\CharacterResource.cs" />
     <Compile Include="Helpers\ConditionTimer.cs" />
+    <Compile Include="Helpers\NodeHelper.cs" />
+    <Compile Include="Inventory\InventoryItem.cs" />
+    <Compile Include="Inventory\InventoryItemKey.cs" />
+    <Compile Include="Inventory\StockManagers\CordialStockManager.cs" />
     <Compile Include="Localization\Localization.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Localization.resx</DependentUpon>
     </Compile>
     <Compile Include="Localization\LocalizationInitializer.cs" />
+    <Compile Include="Logging\BeforeGatherGpRegenStrategyLogger.cs" />
+    <Compile Include="Logging\CordialConsumerLogger.cs" />
+    <Compile Include="Logging\GathererLogger.cs" />
+    <Compile Include="Logging\GpRegeneratorLogger.cs" />
+    <Compile Include="Logging\IBeforeGatherGpRegenStrategyLogger.cs" />
+    <Compile Include="Logging\ICordialConsumerLogger.cs" />
+    <Compile Include="Logging\IGathererLogger.cs" />
+    <Compile Include="Logging\IGpRegeneratorLogger.cs" />
+    <Compile Include="Logging\IStatusLogger.cs" />
+    <Compile Include="Logging\ProfileBehaviorLogger.cs" />
     <Compile Include="Navigation\FlightEnabledNavigatorbeta.cs" />
     <Compile Include="Navigation\FlightEnabledNavigatorCN.cs" />
     <Compile Include="Offsets\SecondaryOffsets.cs" />
+    <Compile Include="OrderBotTags\Gather\Strategies\AfterGatherGpRegenStrategy.cs" />
+    <Compile Include="OrderBotTags\Gather\Strategies\BeforeGatherGpRegenStrategy.cs" />
+    <Compile Include="OrderBotTags\Gather\Strategies\GpRegenStrategyResult.cs" />
+    <Compile Include="OrderBotTags\Gather\Strategies\IGpRegenStrategy.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\Collect321GatheringRotation.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\Collect346GatheringRotation.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\Collect390GatheringRotation.cs" />
@@ -92,6 +112,7 @@
     <Compile Include="OrderBotTags\Gather\Rotations\LightningElementGatheringRotation.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\WaterElementGatheringRotation.cs" />
     <Compile Include="OrderBotTags\Gather\Rotations\WindElementGatheringRotation.cs" />
+    <Compile Include="OrderBotTags\Gather\TimeToGather.cs" />
     <Compile Include="Plugins\Skywatcher\Objects\Location.cs" />
     <Compile Include="Plugins\Skywatcher\Objects\LocationIndex.cs" />
     <Compile Include="Plugins\Skywatcher\Objects\WeatherRate.cs" />
@@ -198,7 +219,7 @@
     <Compile Include="Attributes\GatheringRotationAttribute.cs" />
     <Compile Include="OrderBotTags\Gather\GatherSpots\GatherSpot.cs" />
     <Compile Include="Enumerations\GatherSpotType.cs" />
-    <Compile Include="OrderBotTags\Gather\GatherStrategy.cs" />
+    <Compile Include="OrderBotTags\Gather\Strategies\GatherStrategy.cs" />
     <Compile Include="Interfaces\IGatheringRotation.cs" />
     <Compile Include="OrderBotTags\Objects\GatherItem.cs" />
     <Compile Include="Plugins\ExBotPlugin{T}.cs" />

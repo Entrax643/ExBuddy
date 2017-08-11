@@ -4,8 +4,9 @@
 	using ff14bot;
 	using Interfaces;
 	using System.Threading.Tasks;
+	using Helpers;
 
-	[GatheringRotation("Collect410", 30, 600)]
+    [GatheringRotation("Collect410", 30, 600)]
 	public sealed class Collect410GatheringRotation : CollectableGatheringRotation, IGetOverridePriority
 	{
 		#region IGetOverridePriority Members
@@ -24,7 +25,7 @@
 
 		public override async Task<bool> ExecuteRotation(ExGatherTag tag)
 		{
-			if (tag.IsUnspoiled())
+			if (tag.Node.IsUnspoiled())
 			{
 				await SingleMindAppraiseAndRebuff(tag);
 				await AppraiseAndRebuff(tag);

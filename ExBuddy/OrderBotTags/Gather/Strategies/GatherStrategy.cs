@@ -1,4 +1,4 @@
-﻿namespace ExBuddy.OrderBotTags.Gather
+﻿namespace ExBuddy.OrderBotTags.Gather.Strategies
 {
 	public enum GatherStrategy : byte
 	{

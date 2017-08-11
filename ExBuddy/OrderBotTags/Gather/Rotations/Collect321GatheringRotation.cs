@@ -5,8 +5,9 @@
 	using ff14bot.Managers;
 	using Interfaces;
 	using System.Threading.Tasks;
+	using Helpers;
 
-	[GatheringRotation("Collect321", 35, 600)]
+    [GatheringRotation("Collect321", 35, 600)]
 	public sealed class Collect321GatheringRotation : CollectableGatheringRotation, IGetOverridePriority
 	{
 		#region IGetOverridePriority Members
@@ -25,7 +26,7 @@
 
 		public override async Task<bool> ExecuteRotation(ExGatherTag tag)
 		{
-			if (tag.IsUnspoiled())
+			if (tag.Node.IsUnspoiled())
 			{
 				await SingleMindImpulsive(tag);
 				await SingleMindImpulsive(tag);
@@ -34,7 +35,7 @@
 			}
 			else
 			{
-				if (Core.Player.CurrentGP >= 600 && (GatheringManager.SwingsRemaining > 4 || tag.CanUseCordial()))
+				if (Core.Player.CurrentGP >= 600 && GatheringManager.SwingsRemaining > 4)
 				{
 					if (Core.Player.ClassLevel >= 57)
 					{

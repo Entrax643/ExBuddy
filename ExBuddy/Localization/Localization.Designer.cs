@@ -61,6 +61,78 @@ namespace ExBuddy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} cannot be used because player is dead. .
+        /// </summary>
+        internal static string CordialConsumer_CordialCannotBeUsedByDeadPlayer {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialCannotBeUsedByDeadPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} cannot be used because player is mounted. .
+        /// </summary>
+        internal static string CordialConsumer_CordialCannotBeUsedByMountedPlayer {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialCannotBeUsedByMountedPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} cannot be used by player..
+        /// </summary>
+        internal static string CordialConsumer_CordialCannotBeUsedByPlayer {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialCannotBeUsedByPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} cannot be used because dismount failed..
+        /// </summary>
+        internal static string CordialConsumer_CordialCannotBeUsedDismountFailed {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialCannotBeUsedDismountFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 Item {0} is not valid..
+        /// </summary>
+        internal static string CordialConsumer_CordialItemTypeInvalid {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialItemTypeInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} cannot be used because it is on cooldown..
+        /// </summary>
+        internal static string CordialConsumer_CordialOnCooldown {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialOnCooldown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} cannot be used because stock is depleted..
+        /// </summary>
+        internal static string CordialConsumer_CordialStockDepleted {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialStockDepleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🍼 {0} was used. Original GP: {1}, Cordial GP: {2}, Regenerated GP: {3}, Target GP: {4}.
+        /// </summary>
+        internal static string CordialConsumer_CordialUsed {
+            get {
+                return ResourceManager.GetString("CordialConsumer_CordialUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to resolve cordial data, if this continues, please report logs to ExMatt..
         /// </summary>
         internal static string Cordinal_NullSpellData {
@@ -529,20 +601,29 @@ namespace ExBuddy.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Starting GP: {0}, Current GP: {1}, Effective GP: {2}, Breakpoint GP: {3}, Target GP: {4}, Max GP: {5}, Selected Cordial: {6}, Selected Cordial Size: {7}.
+        /// </summary>
+        internal static string ExGather_BeforeGatherReport {
+            get {
+                return ResourceManager.GetString("ExGather_BeforeGatherReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regenerating GP for approximately {0} seconds..
+        /// </summary>
+        internal static string ExGather_BeforeGatherWait {
+            get {
+                return ResourceManager.GetString("ExGather_BeforeGatherWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Blacklisting node so that we don&apos;t retarget -&gt; .
         /// </summary>
         internal static string ExGather_BlackListNode {
             get {
                 return ResourceManager.GetString("ExGather_BlackListNode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Using cordial when it becomes available.
-        /// </summary>
-        internal static string ExGather_Cordial {
-            get {
-                return ResourceManager.GetString("ExGather_Cordial", resourceCulture);
             }
         }
         
@@ -561,6 +642,15 @@ namespace ExBuddy.Localization {
         internal static string ExGather_CordialUse {
             get {
                 return ResourceManager.GetString("ExGather_CordialUse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cordial use has been disabled because there is no cordial stock.
+        /// </summary>
+        internal static string ExGather_CordialUseDisabledNoStock {
+            get {
+                return ResourceManager.GetString("ExGather_CordialUseDisabledNoStock", resourceCulture);
             }
         }
         
@@ -732,6 +822,15 @@ namespace ExBuddy.Localization {
         internal static string ExGather_NoAvailableNode {
             get {
                 return ResourceManager.GetString("ExGather_NoAvailableNode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No cordial was found that satisfies the missing GP. Original GP: {0}, Target GP: {1}, Total Missing: {2}.
+        /// </summary>
+        internal static string ExGather_NoCordialWasAppropriate {
+            get {
+                return ResourceManager.GetString("ExGather_NoCordialWasAppropriate", resourceCulture);
             }
         }
         
@@ -979,7 +1078,7 @@ namespace ExBuddy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TouchAndGo strategy override, not waiting for GP unless it is less than 16 seconds.
+        ///   Looks up a localized string similar to Expected wait of {0} exceeds maximum TouchAndGo wait of {1}.
         /// </summary>
         internal static string ExGather_TnGSeconds {
             get {
@@ -1078,7 +1177,7 @@ namespace ExBuddy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to land, can&apos;t reduce unless we land!.
+        ///   Looks up a localized string similar to Can&apos;t reduce unless we land!.
         /// </summary>
         internal static string ExPurify_Land {
             get {
@@ -1096,7 +1195,7 @@ namespace ExBuddy.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unable to land, can&apos;t salvage unless we land!.
+        ///   Looks up a localized string similar to Can&apos;t salvage unless we land!.
         /// </summary>
         internal static string ExSalvage_Land {
             get {

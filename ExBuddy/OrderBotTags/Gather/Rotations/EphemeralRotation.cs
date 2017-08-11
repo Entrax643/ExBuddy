@@ -15,7 +15,7 @@ namespace ExBuddy.OrderBotTags.Gather.Rotations
 
 		int IGetOverridePriority.GetOverridePriority(ExGatherTag tag)
 		{
-			if (tag.IsEphemeral() && tag.CollectableItem == null)
+			if (tag.Node.IsEphemeral() && tag.CollectableItem == null)
 			{
 				return 9100;
 			}

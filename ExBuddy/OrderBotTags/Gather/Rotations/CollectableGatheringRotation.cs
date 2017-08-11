@@ -6,8 +6,9 @@
 	using ff14bot.Managers;
 	using ff14bot.RemoteWindows;
 	using System.Threading.Tasks;
+	using ff14bot.Objects;
 
-	public abstract class CollectableGatheringRotation : GatheringRotation
+    public abstract class CollectableGatheringRotation : GatheringRotation
 	{
 		protected int CurrentRarity
 		{
@@ -104,9 +105,9 @@
 			return true;
 		}
 
-		public override bool ShouldForceGather(ExGatherTag tag)
+		public override bool ShouldForceGather(GatheringPointObject node)
 		{
-			return !tag.IsEphemeral() && !tag.IsUnspoiled();
+			return !node.IsEphemeral() && !node.IsUnspoiled();
 		}
 
 		protected async Task Discerning(ExGatherTag tag)
