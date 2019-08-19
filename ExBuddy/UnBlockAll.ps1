@@ -3,7 +3,7 @@
 
 # Test Pathing
 if (Test-Path ..\..\Plugins\ExBuddy) {
-  Get-ChildItem -Path '..\Plugins\ExBuddy' -Recurse | Unblock-File
+  Get-ChildItem -Path '..\ExBuddy' -Recurse | Unblock-File
   [System.Windows.Forms.MessageBox]::Show("Exbuddy was correctly installed and is now UnBlocked","Success",[System.Windows.Forms.MessageBoxButtons]::OK,[System.Windows.Forms.MessageBoxIcon]::Asterisk)
 }
 else {
