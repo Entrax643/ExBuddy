@@ -1,10 +1,16 @@
 ﻿namespace ExBuddy.Helpers
 {
+    using ff14bot;
     using ff14bot.Enums;
     using System.Collections.Generic;
 
     internal static class Abilities
     {
+        internal static uint GetAbilityId(this Ability ability)
+        {
+            return Map[Core.Player.CurrentJob][ability];
+        }
+
         internal static readonly Dictionary<ClassJobType, Dictionary<Ability, uint>> Map =
             new Dictionary<ClassJobType, Dictionary<Ability, uint>>
             {

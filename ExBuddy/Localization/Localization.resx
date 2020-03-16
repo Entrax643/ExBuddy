@@ -735,4 +735,7 @@
   <data name="ExFish_IdenticalCast" xml:space="preserve">
     <value>Using Identical Cast on {0}.</value>
   </data>
+  <data name="ExSpearFish_UsingBountifulCatch" xml:space="preserve">
+    <value>Using Bountiful Catch.</value>
+  </data>
 </root>

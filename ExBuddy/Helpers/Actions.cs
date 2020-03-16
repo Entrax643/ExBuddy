@@ -3,12 +3,71 @@ namespace ExBuddy.Helpers
     using Buddy.Coroutines;
     using ExBuddy.Logging;
     using ff14bot;
+    using ff14bot.Enums;
     using ff14bot.Managers;
     using ff14bot.Objects;
     using System.Threading.Tasks;
 
     internal static class Actions
     {
+        internal static bool HasAction(Ability ability)
+        {
+            return HasAction(ability.GetAbilityId());
+        }
+
+        internal static bool HasAction(uint id)
+        {
+            return ActionManager.HasSpell(id);
+        }
+
+        internal static bool CanCast(Ability ability, uint cost, CostType costType)
+        {
+            return CanCast(ability.GetAbilityId(), cost, costType);
+        }
+
+        internal static bool CanCast(uint id, uint cost, CostType costType)
+        {
+            bool hasCost = false;
+
+            switch (costType)
+            {
+                case CostType.None:
+                    hasCost = true;
+                    break;
+                case CostType.CPCost:
+                    hasCost = Core.Player.CurrentCP >= cost;
+                    break;
+                case CostType.GPCost:
+                    hasCost = Core.Player.CurrentGP >= cost;
+                    break;
+                case CostType.Hp:
+                    hasCost = Core.Player.CurrentHealth >= cost;
+                    break;
+                case CostType.Mp:
+                    hasCost = Core.Player.CurrentMana >= cost;
+                    break;
+                case CostType.Tp:
+                    hasCost = Core.Player.CurrentTP >= cost;
+                    break;
+                default:
+                    Logger.Instance.Warn("{0}() does not support checking {1}.{2}", nameof(CanCast), nameof(CostType), cost);
+                    hasCost = false;
+                    break;
+            }
+
+            return hasCost && CanCast(id);
+        }
+
+        internal static bool CanCast(Ability ability)
+        {
+            return CanCast(ability.GetAbilityId());
+        }
+
+        internal static bool CanCast(uint id)
+        {
+            return ActionManager.CanCast(id, Core.Player);
+        }
+
         internal static async Task<bool> Cast(uint id, int delay)
         {
             //TODO: check affinity, cost type, spell type, and add more informational logging and procedures to casting
@@ -19,9 +78,9 @@ namespace ExBuddy.Helpers
                 await Coroutine.Wait(3500, () => !GatheringManager.ShouldPause(spellData));
             }
 
-            var result = ActionManager.DoAction(id, Core.Player);
+            bool result = ActionManager.DoAction(id, Core.Player);
 
-            var ticks = 0;
+            int ticks = 0;
             while (result == false && ticks++ < 10 && Behaviors.ShouldContinue)
             {
                 result = ActionManager.DoAction(id, Core.Player);
@@ -56,12 +115,12 @@ namespace ExBuddy.Helpers
 
         internal static async Task<bool> Cast(Ability ability, int delay)
         {
-            return await Cast(Abilities.Map[Core.Player.CurrentJob][ability], delay);
+            return await Cast(ability.GetAbilityId(), delay);
         }
 
         internal static async Task<bool> CastAura(uint spellId, int delay, int auraId = -1)
         {
-            var result = false;
+            bool result = false;
             if (auraId == -1 || !Core.Player.HasAura((uint)auraId))
             {
                 SpellData spellData;
@@ -71,7 +130,7 @@ namespace ExBuddy.Helpers
                 }
 
                 result = ActionManager.DoAction(spellId, Core.Player);
-                var ticks = 0;
+                int ticks = 0;
                 while (result == false && ticks++ < 5 && Behaviors.ShouldContinue)
                 {
                     result = ActionManager.DoAction(spellId, Core.Player);
@@ -104,7 +163,7 @@ namespace ExBuddy.Helpers
 
         internal static async Task<bool> CastAura(Ability ability, int delay, AbilityAura aura = AbilityAura.None)
         {
-            return await CastAura(Abilities.Map[Core.Player.CurrentJob][ability], delay, (int)aura);
+            return await CastAura(ability.GetAbilityId(), delay, (int)aura);
         }
     }
 }
